@@ -1,8 +1,109 @@
-@import url(./fonts.scss);
-@import url(./madia.scss);
+@import url(./fonts.css);
+@import url(./madia.css);
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  color: #000000;
+}
+
+.wrapper {
+  position: relative;
+  width: 1180px;
+  margin: 0 auto;
+}
+
+// header
+
+.header {
+  width: 100%;
+  height: 550px;
+  background-image: url(./../assets/img/header-bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.headline {
+  transform: matrix(1, 0, 0, 1, 150, 150);
+  width: 450px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.1;
+  p {
+    margin-bottom: 12px;
+    font-size: 35px;
+    font-weight: 800;
+  }
+  h1 {
+    font-size: 55px;
+    font-weight: 900;
+  }
+}
+
+// main
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-article {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 83px;
+  background-color: #000000;
+}
+
+.form-pointer {
+  width: 780px;
+  display: flex;
+  justify-content: end;
+  h2 {
+    margin-right: 32px;
+    font-size: 25px;
+    line-height: 1.4;
+    font-weight: 800;
+    color: #ffffff;
+  }
+  img {
+    width: 149px;
+    height: 33px;
+  }
+}
+
+.form {
+  position: absolute;
+  bottom: 8px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 368px;
+  height: 549px;
+  background-color: #efefef;
+  border-radius: 10px;
+  &-header,
+  &-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+  }
+  h3 {
+    font-size: 23px;
+    text-align: center;
+  }
+  &-main {
+    flex-grow: 1;
+    padding: 13px 15px;
+    background-color: #ffffff;
+  }
 }
