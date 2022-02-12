@@ -6,10 +6,16 @@
   height: 66px;
   background-color: #000000;
   color: #ffffff;
+  border: 2px solid #000000;
   border-radius: 8px;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
+  transition: 0.3s ease-in;
+  &:hover {
+    background-color: transparent;
+    color: #000000;
+  }
 }
 
 * {
@@ -39,6 +45,11 @@ input {
   position: relative;
   width: 1180px;
   margin: 0 auto;
+}
+
+.invalid {
+  border-color: red !important;
+  color: red !important;
 }
 
 // *** header
@@ -177,25 +188,34 @@ input {
     color: #ffffff;
 
     background-color: #22a6f0;
-    border: none;
+    border: 2px solid #22a6f0;
     border-radius: 5px;
     box-shadow: 0 4px 9px rgba($color: #000000, $alpha: 0.25);
+    cursor: pointer;
+    transition: 0.3s ease-in;
+    &:hover {
+      background-color: transparent;
+      color: #22a6f0;
+    }
   }
   .agreement {
     display: flex;
     margin-bottom: 10px;
     input {
       margin-right: 15px;
+      transition: 0.3 ease-in;
       &::after,
       &:checked::after {
         position: absolute;
         content: '';
-        width: 20px;
-        height: 20px;
-        background-color: #313128;
+        width: 18px;
+        height: 18px;
         border-radius: 2px;
+        border: 2px solid #313128;
+        background-color: #ffffff;
       }
       &:checked::after {
+        background-color: #313128;
         background-image: url(./../assets/img/check-mark.png);
         background-position: center;
         background-repeat: no-repeat;
@@ -207,6 +227,7 @@ input {
     a {
       text-decoration: underline;
       color: #22a6f0;
+      cursor: pointer;
     }
   }
   p {
@@ -262,7 +283,7 @@ input {
   width: 100%;
   background-color: #ececec;
   .wrapper {
-    margin: 50px auto;
+    margin: 56px auto;
     align-items: center;
   }
   h2 {

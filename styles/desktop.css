@@ -33,6 +33,11 @@ input {
   margin: 0 auto;
 }
 
+.invalid {
+  border-color: red !important;
+  color: red !important;
+}
+
 .header {
   width: 100%;
   height: 550px;
@@ -222,10 +227,18 @@ input {
   font-weight: 700;
   color: #ffffff;
   background-color: #22a6f0;
-  border: none;
+  border: 2px solid #22a6f0;
   border-radius: 5px;
   -webkit-box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25);
           box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+}
+
+.form .submit:hover {
+  background-color: transparent;
+  color: #22a6f0;
 }
 
 .form .agreement {
@@ -237,18 +250,22 @@ input {
 
 .form .agreement input {
   margin-right: 15px;
+  -webkit-transition: 0.3 ease-in;
+  transition: 0.3 ease-in;
 }
 
 .form .agreement input::after, .form .agreement input:checked::after {
   position: absolute;
   content: '';
-  width: 20px;
-  height: 20px;
-  background-color: #313128;
+  width: 18px;
+  height: 18px;
   border-radius: 2px;
+  border: 2px solid #313128;
+  background-color: #ffffff;
 }
 
 .form .agreement input:checked::after {
+  background-color: #313128;
   background-image: url(./../assets/img/check-mark.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -261,6 +278,7 @@ input {
 .form .agreement a {
   text-decoration: underline;
   color: #22a6f0;
+  cursor: pointer;
 }
 
 .form p {
@@ -324,10 +342,18 @@ input {
   height: 66px;
   background-color: #000000;
   color: #ffffff;
+  border: 2px solid #000000;
   border-radius: 8px;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+}
+
+.layout-article a:hover {
+  background-color: transparent;
+  color: #000000;
 }
 
 .layout-text {
@@ -347,7 +373,7 @@ input {
 }
 
 .options-article .wrapper {
-  margin: 50px auto;
+  margin: 56px auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -450,14 +476,22 @@ input {
   height: 66px;
   background-color: #000000;
   color: #ffffff;
+  border: 2px solid #000000;
   border-radius: 8px;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+}
+
+.footer a:hover {
+  background-color: transparent;
+  color: #000000;
 }
 
 .footer img {
   width: 372px;
   height: 34px;
 }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=desktop.css.map */
