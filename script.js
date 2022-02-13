@@ -1,71 +1,63 @@
-const form = document.querySelector("#form");
+const form = document.querySelector('.form');
+const fields = form.querySelectorAll('input:not(.submit)');
+const submit = form.querySelector(".submit");
 
-function showData(e) {
-  e.preventDefault();
+form.addEventListener('submit', function (event) {
+  event.preventDefault()
 
-  const formData = {};
+  const invalidFields = form.querySelectorAll('.invalid');
 
-  for (let i = 0; i < e.target.length; i++) {
+  unhighlightField(invalidFields);
 
-    if (e.target[i].name === 'submit') continue;
-    if (e.target[i].name === 'agree') {
-      e.target[i].checked ? e.target[i].value = true : e.target[i].value = false;
-    }
-    formData[e.target[i].name] = e.target[i].value;
-  }
+  areEmptyFields();
 
-  if (validateForm(formData)) {
-    // console.log(e.target[i].name + "->" + e.target[i].value);
-    console.log(1);
-  }
-}
+  checkValidation();
 
-function validateForm(formData) {
-  let isformValid = true;
-
-  if (formData.firstName.length < 2) {
-    isformValid = false;
-    highlightField(firstName);
-  } else {
-    unhighlightField(firstName)
-  }
-
-  if (formData.lastName.length < 2) {
-    isformValid = false;
-    highlightField(lastName);
-  } else {
-    unhighlightField(lastName)
-  }
-
-  const emailRegexp = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-  if (!emailRegexp.test(formData.email)) {
-    isformValid = false;
-    highlightField(email);
-  } else {
-    unhighlightField(email)
-  }
-
-  if (typeof formData.phoneNumber != Number && formData.phoneNumber.length < 6 || formData.phoneNumber.length > 12) {
-    isformValid = false;
-    highlightField(phoneNumber);
-  } else {
-    unhighlightField(phoneNumber)
-  }
-
-  return isformValid;
-}
+  return (isFormValid());
+})
 
 function highlightField(field) {
   field.classList.add("invalid");
 }
-function unhighlightField(field) {
-  field.classList.remove("invalid");
+
+function unhighlightField(invalidFields) {
+  if (invalidFields) {
+    for (var i = 0; i < invalidFields.length; i++) {
+      invalidFields[i].classList.remove("invalid");
+    }
+  }
 }
 
-form.addEventListener('submit', showData);
-
-form.addEventListener('keydown', function (event) {
-  if (event.keyCode == 13) {
-    event.preventDefault();
+function areEmptyFields() {
+  for (var i = 0; i < fields.length; i++) {
+    if (!fields[i].value) {
+      highlightField(fields[i]);
+    }
   }
-}); // disable submit by enter button
+}
+
+function checkValidation() {
+  if (form.firstName.value.length < 2) highlightField(form.firstName);
+
+  if (form.lastName.value.length < 2) highlightField(form.lastName);
+
+  const emailRegexp = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+  if (!emailRegexp.test(form.email.value)) highlightField(form.email);
+
+  if (typeof form.phoneNumber.value != Number && form.phoneNumber.value.length < 6 || form.phoneNumber.value.length > 12) highlightField(form.phoneNumber);
+}
+
+function isFormValid() {
+  return document.querySelectorAll(".invalid").length === 0;
+}
+
+submit.addEventListener("click", function () {
+  console.group("Form data");
+  for (let i = 0; i < fields.length; i++) {
+    if (fields[i].name === 'agree') {
+      fields[i].checked ? fields[i].value = true : fields[i].value = false;
+    }
+    console.log(`${fields[i].name} -> ${fields[i].value}`);
+  }
+  console.groupEnd()
+})

@@ -11,7 +11,7 @@
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.3s ease-in;
+  transition: 0.2s ease-in;
   &:hover {
     background-color: transparent;
     color: #000000;
@@ -170,10 +170,17 @@ input {
       border: 1px solid #b1b1b1;
       border-radius: 5px;
       outline: none;
+      transition: 0.2s ease-in;
       &::placeholder {
         font-size: 13px;
         font-weight: 300;
         color: #b1b1b1;
+      }
+      &:hover {
+        background: #f9f9f9;
+      }
+      &:focus {
+        background: #f1f1f1;
       }
     }
   }
@@ -192,7 +199,7 @@ input {
     border-radius: 5px;
     box-shadow: 0 4px 9px rgba($color: #000000, $alpha: 0.25);
     cursor: pointer;
-    transition: 0.3s ease-in;
+    transition: 0.2s ease-in;
     &:hover {
       background-color: transparent;
       color: #22a6f0;
